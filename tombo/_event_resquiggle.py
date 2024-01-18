@@ -798,6 +798,7 @@ def align_to_genome(batch_reads_data, genome_fn, mapper_data, genome_index,
         try:
             exitStatus = call([mapper_data.exe,] + mapper_options,
                               stdout=stdout_sink, stderr=FNULL)
+            print([mapper_data.exe,] + mapper_options)
             out_fp.seek(0)
             align_output = out_fp.readlines()
             # close files here so that they persist until
