@@ -758,7 +758,7 @@ def prep_bwa_mem_options(genome_fn, read_fn, num_align_ps):
 
 def prep_minimap2_options(genome_fn, read_fn, num_align_ps, index_fn):
     mapper_genome = genome_fn if index_fn is None else index_fn
-    return ['-ax', 'map-ont', '-t', unicode(num_align_ps), mapper_genome, read_fn]
+    return ['-ax', 'map-ont', '-t', unicode(num_align_ps), '-k', '10', '-w', '3', '-B', '3', '-O', '2,8', mapper_genome, read_fn]
 
 def align_to_genome(batch_reads_data, genome_fn, mapper_data, genome_index,
                     num_align_ps, output_format='sam'):
